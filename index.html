@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Help &amp; support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #EEF2F6;
+      --ink: #142235;
+      --muted: #4E5D70;
+      --road: #F2B705;
+      --btn: #1D4E89;
+      --btn-ink: #FFFFFF;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0F1A28;
+        --ink: #E8EEF5;
+        --muted: #A3B1C2;
+        --road: #F2B705;
+        --btn: #4D8FD6;
+        --btn-ink: #0F1A28;
+        color-scheme: dark;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      display: grid;
+      place-items: center;
+      padding: 2rem 1.5rem;
+    }
+    main { max-width: 34rem; }
+    .road {
+      height: 6px;
+      width: 9rem;
+      background: repeating-linear-gradient(90deg, var(--road) 0 1.5rem, transparent 1.5rem 2.25rem);
+      margin-bottom: 2rem;
+    }
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+    p {
+      font-size: 1.125rem;
+      line-height: 1.55;
+      color: var(--muted);
+      margin: 0 0 2rem;
+    }
+    button {
+      font: inherit;
+      font-weight: 600;
+      font-size: 1.05rem;
+      background: var(--btn);
+      color: var(--btn-ink);
+      border: 0;
+      border-radius: 999px;
+      padding: 0.9rem 1.6rem;
+      cursor: pointer;
+    }
+    button:hover { filter: brightness(1.08); }
+    button:focus-visible { outline: 3px solid var(--road); outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="road" aria-hidden="true"></div>
+    <h1>Questions about your ride?</h1>
+    <p>Ask about bookings, pickups, changes or invoices. Our assistant answers right away and hands you to the team when it can’t.</p>
+    <button type="button" onclick="window.Intercom && window.Intercom('show')">Start a chat</button>
+  </main>
+
+  <!-- Intercom / Fin messenger: loader -->
+  <script>
+    (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/ea65jdvc';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+  </script>
+
+  <!-- Intercom / Fin messenger: boot for anonymous visitors (EU region) -->
+  <script>
+    window.Intercom("boot", {
+      api_base: "https://api-iam.eu.intercom.io",
+      app_id: "ea65jdvc",
+      messenger_environment: "uzy2rred4q"
+    });
+  </script>
+</body>
+</html>
